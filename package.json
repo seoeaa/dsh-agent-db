@@ -1,0 +1,58 @@
+{
+  "name": "@local/dsh-agent-db",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Session-owned disposable PGX databases for Harness agents",
+  "exports": {
+    ".": "./index.js",
+    "./tools": "./tools.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "manager.js",
+    "tools.js",
+    "cordis.patch.yml",
+    "README.md",
+    "scripts/link-runtime.mjs",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "pg": "8.23.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "~4.0.5-alpha.2",
+    "@deepseek-ai/dsh-tools": "0.2.1-alpha.3"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-tools": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "check": "node --check index.js && node --check manager.js && node --check tools.js && node --check scripts/link-runtime.mjs",
+    "setup:runtime": "node scripts/link-runtime.mjs"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seoeaa/dsh-agent-db.git"
+  },
+  "homepage": "https://github.com/seoeaa/dsh-agent-db#readme",
+  "bugs": {
+    "url": "https://github.com/seoeaa/dsh-agent-db/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

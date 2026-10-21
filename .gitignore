@@ -1,0 +1,12 @@
+node_modules/
+*.tgz
+.env
+.env.*
+!.env.example
+registry.json
+registry.json.*
+config.json
+pgx/
+exports/
+*.log
+.codebase-memory/
